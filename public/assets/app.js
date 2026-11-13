@@ -39,6 +39,7 @@ function route() {
   const n = NOTES[name] || NOTES._all;
   $("#reviewBody").innerHTML = `<h3>原型说明（仅内部可见）</h3><p>当前页面：<b>${esc(name)}</b></p><h4>数据来源</h4><p>${esc(n.src)}</p>
     <h4>上线前待办</h4><ul>${n.todo.map(t => `<li>${esc(t)}</li>`).join("")}</ul><h4>全站待办</h4><ul>${NOTES._all.todo.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+    <h4>产品数据模板下载</h4><ul><li><a href="files/product-data-template-blank.xlsx" download="产品数据模板_空白版.xlsx">产品数据模板_空白版.xlsx</a>（发给研发填写）</li><li><a href="files/product-data-template-demo.xlsx" download="产品数据模板_演示数据.xlsx">产品数据模板_演示数据.xlsx</a>（含示例行）</li></ul>
     <h4>数据状态</h4><p>${A.DB.demo ? "⚠ 当前为演示数据（型号以 DEMO- 开头）" : "真实数据"}；生成时间 ${esc(A.DB.generated_at)}；来源文件 ${esc(A.DB.source_file)}</p>`;
   document.title = `${name === "home" ? "Industrial AC Servo Motors & Drives" : $("#app h1") ? $("#app h1").textContent : name} | ${S.brand} (prototype)`;
   window.scrollTo(0, 0);
